@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Header1 from './components/header/header.jsx';
+import GaleriaPokemon from './components/galeriaPokemon/galeriaPokemon.jsx';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+   <>
+    <Header1></Header1>
+    <GaleriaPokemon></GaleriaPokemon>
+    
+   </> 
+    ,document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
