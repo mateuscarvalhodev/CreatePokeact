@@ -8,14 +8,17 @@
     margin:10px 0px;
     overflow: hidden;
     border-radius: 10px;
-    transition: transform .5s ease;
 }    
     
 .card:hover{
-    -webkit-transform: scale(1.1);
-   transform: scale(1.1);
+    
    cursor: pointer;
 }
 .card-icon{
     width:200px;
+    transition:transform .5s ease;
+}
+.card-icon:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }

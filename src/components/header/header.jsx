@@ -9,9 +9,7 @@ export default () => {
   </button>
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav">
-      <li className="nav-item active">
-        <a className="nav-link" href="#">PESQUISA <span className="sr-only">(current)</span></a>
-      </li>
+      
       
       <div className="input-group rounded">
   <input type="search" className="form-control rounded" placeholder="Search Pokemon" aria-label="Search"
