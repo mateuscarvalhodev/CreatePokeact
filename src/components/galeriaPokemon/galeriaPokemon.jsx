@@ -1,9 +1,27 @@
 import react from 'react';
 import CardPokemon from '../cardPokemon/cardPokemon'
+import galeriaPokemon from '../galeriaPokemon/galeriaPokemon.css'
 export default () => {
     return(
         <>
-        <div class="container">
+        <div className="containerPokemon">
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
+            <CardPokemon></CardPokemon>
             <CardPokemon></CardPokemon>
             <CardPokemon></CardPokemon>
             <CardPokemon></CardPokemon>

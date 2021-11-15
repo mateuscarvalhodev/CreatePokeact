@@ -1,15 +1,32 @@
-import react from 'react';
+import react from "react";
+import "./cardPokemon.css";
+import ImagePokemon from "../../assets/images/charizardbaby.png"
+import PokemonTemplates from "../../assets/images/pokemonTemplate.png"
 export default () => {
-    return(
+  return (
     <div>
-     <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+      
+      <div className="card">
+        <div className="card-body">
+        {/* <img classname="pokemonTemplate" alt="template" tittle="Pokemon-Template" src={PokemonTemplates}></img> */}
+          <img className="card-icon" alt="Card" title="card-icon" src={ImagePokemon}/>
+          <h5 className="card-title">Charizard</h5>
+          <div className="card-content">
+            <p>
+              <span>Type: </span>
+              <span>Fire </span>
+            </p>
+            <p>
+              <span>Weight: </span>
+              <span>70kg</span>
+            </p>
+            <p>
+              <span>Height: </span>
+              <span>2.10m</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    )}
+  );
+};

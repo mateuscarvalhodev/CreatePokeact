@@ -1,0 +1,6 @@
+.containerPokemon{
+    display:flex;
+    justify-content:space-around;
+    max-width: 100%;
+    flex-wrap:wrap;
+}
