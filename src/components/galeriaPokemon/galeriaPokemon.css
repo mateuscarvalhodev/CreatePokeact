@@ -1,6 +1,12 @@
-.containerPokemon{
-    display:flex;
-    justify-content:space-around;
-    max-width: 100%;
-    flex-wrap:wrap;
+.containerPokemon {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  gap: 50px;
+  padding: 0.5em;
+}
+.containerPokemon::after {
+  content: "";
+  flex: auto;
 }

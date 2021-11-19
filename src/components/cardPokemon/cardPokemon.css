@@ -1,24 +1,23 @@
-.card-title{
-    font-family: 'Pokemon Hollow';
-    color:red
+.card-title {
+  font-family: "PokemonHollow";
+  color: red;
 }
-.card{
-    width:300px;
-    box-shadow:-3px 0px 24px 6px rgba(0,0,0,0.71);
-    margin:10px 0px;
-    overflow: hidden;
-    border-radius: 10px;
-}    
-    
-.card:hover{
-    
-   cursor: pointer;
+.card {
+  width: 300px;
+  box-shadow: -3px 0px 24px 6px rgba(0, 0, 0, 0.71);
+  margin: 10px 0px;
+  overflow: hidden;
+  border-radius: 10px;
 }
-.card-icon{
-    width:200px;
-    transition:transform .5s ease;
+
+.card:hover {
+  cursor: pointer;
 }
-.card-icon:hover{
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+.card-icon {
+  width: 200px;
+  transition: transform 0.5s ease;
+}
+.card-icon:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
