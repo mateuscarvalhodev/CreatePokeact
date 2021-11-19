@@ -8,11 +8,11 @@ export default () => {
         <div className="form">
           <div className="form-header">
             <h2>New Pokemon</h2>
-            <div class="close-button">X</div>
+            <div className="close-button">X</div>
           </div>
           <form action="">
             {/* <div className="input-group">
-              <label class="sr-only" for="name">
+              <label className="sr-only" for="name">
                 Pokemon Name
               </label>
               <input
@@ -23,26 +23,26 @@ export default () => {
               />
             </div> */}
           </form>
-          <div class="form-group">
-            <label class="form-label"></label>
+          <div className="form-group">
+            <label className="form-label"></label>
             <input
               type="text"
               id="PokemonName"
               name="PokemonName"
-              class="form-control"
+              className="form-control"
               placeholder="Pokemon Name..."
             />
           </div>
-          <div class="form-group">
-            <label class="form-label">Send Files:</label>
+          <div className="form-group">
+            <label className="form-label">Send Files:</label>
             <input
               id="file-input"
-              class="input"
+              className="input"
               type="file"
               name="image[]"
               multiple="multiple"
             />
-            <div class="select-files">Select Pictures</div>
+            <div className="select-files">Select Pictures</div>
             <div id="preview"></div>
           </div>
          </div>
