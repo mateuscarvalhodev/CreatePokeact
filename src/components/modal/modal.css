@@ -62,12 +62,53 @@
 .close-button {
   color: darkmagenta;
   cursor: pointer;
-
-  font-size: 32px;
-  font-weight: 800;
 }
 
 .form-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  padding: 8px 12px;
+
+  background-color: lightgreen;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.form-group.files {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+}
+
+.form-group.files input{
+    display:none
 }

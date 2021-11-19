@@ -7,7 +7,7 @@ export default () => {
       <div className="modal-content">
         <div className="form">
           <div className="form-header">
-            <h2>New Pokemon</h2>
+            <div className="title">New Pokemon</div>
             <div className="close-button">X</div>
           </div>
           <form action="">
@@ -33,8 +33,7 @@ export default () => {
               placeholder="Pokemon Name..."
             />
           </div>
-          <div className="form-group">
-            <label className="form-label">Send Files:</label>
+          <div className="form-group files">
             <input
               id="file-input"
               className="input"
@@ -45,7 +44,10 @@ export default () => {
             <div className="select-files">Select Pictures</div>
             <div id="preview"></div>
           </div>
-         </div>
+        </div>
+        <div className="add-button-container">
+          <div className="add-button">Adicionar</div>
+        </div>
       </div>
     </div>
   );
