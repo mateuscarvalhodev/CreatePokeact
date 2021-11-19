@@ -104,11 +104,27 @@
 
 .form-group.files {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
+  justify-content: flex-start;
+  align-items: center;
   align-content: center;
+  flex-direction: column;
+
+  margin: 0 !important;
 }
 
-.form-group.files input{
-    display:none
+.form-group.files input {
+  display: none;
+}
+
+.pokemon-preview-image {
+  width: auto;
+  max-height: 176px;
+}
+
+#preview {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }

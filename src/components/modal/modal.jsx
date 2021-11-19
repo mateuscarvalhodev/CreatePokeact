@@ -1,7 +1,44 @@
-import react from "react";
+import react, { useRef, useState } from "react";
 import "../modal/modal.css";
-// import "../../assets/js/main";
+
 export default () => {
+  const fileInput = useRef(null);
+
+  const [pokemonPreviewImage, setPokemonPreviewImage] = useState("");
+  const [pokemonName, setPokemonName] = useState("");
+
+  const selectPictureButtonAction = () => {
+    fileInput?.current?.click();
+  };
+
+  const isFileImage = (file) => {
+    const imageTest = ["img", "image"];
+    return imageTest.some((imageType) => file.type.includes(imageType));
+  };
+
+  const updateFileList = () => {
+    try {
+      const image = fileInput.current.files[0];
+      setPokemonPreviewImage(image);
+    } catch (error) {
+      alert("Erro ao carregar imagem.");
+      console.error("Erro ao carregar imagem.", error);
+    }
+  };
+
+  const updatePokemonName = (event) => {
+    setPokemonName(event.target.value);
+  };
+
+  const addPokemon = () => {
+    const pokemon = {
+      name: pokemonName.current,
+      image: URL.createObjectURL(pokemonPreviewImage.current),
+    };
+
+    
+  };
+
   return (
     <div className="modal-overlay active">
       <div className="modal-content">
@@ -31,6 +68,7 @@ export default () => {
               name="PokemonName"
               className="form-control"
               placeholder="Pokemon Name..."
+              onChange={updatePokemonName}
             />
           </div>
           <div className="form-group files">
@@ -38,15 +76,31 @@ export default () => {
               id="file-input"
               className="input"
               type="file"
-              name="image[]"
-              multiple="multiple"
+              name="image"
+              accept="image/png, image/jpeg"
+              ref={fileInput}
+              value={pokemonName}
+              onChange={updateFileList}
             />
-            <div className="select-files">Select Pictures</div>
-            <div id="preview"></div>
+            <div onClick={selectPictureButtonAction} className="select-files">
+              Select Pictures
+            </div>
+          </div>
+          <div id="preview">
+            {pokemonPreviewImage ? (
+              <img
+                className="pokemon-preview-image"
+                src={URL.createObjectURL(pokemonPreviewImage)}
+              />
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
         <div className="add-button-container">
-          <div className="add-button">Adicionar</div>
+          <div onClick={addPokemon} className="add-button">
+            Adicionar
+          </div>
         </div>
       </div>
     </div>
