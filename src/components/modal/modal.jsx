@@ -2,7 +2,9 @@ import react, { useRef, useState } from "react";
 import "../modal/modal.css";
 
 
-export default () => {
+export default (props) => {
+  if (!props.open) 
+    return null;
   const fileInput = useRef(null);
 
   const [pokemonPreviewImage, setPokemonPreviewImage] = useState("");

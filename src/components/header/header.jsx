@@ -1,5 +1,5 @@
 import react from "react";
-export default () => {
+export default (props) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,8 +37,8 @@ export default () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
+              <a className="nav-link"  href="#" onClick={props.openModal}>
+                ADICIONAR POKEMON
               </a>
             </li>
 
