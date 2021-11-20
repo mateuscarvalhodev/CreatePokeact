@@ -5,7 +5,7 @@ import Modal from "../modal/modal";
 export default () => {
   return (
     <>
-      <div className="containerPokemon">
+      <div className="container-pokemon">
         <CardPokemon></CardPokemon>
         <CardPokemon></CardPokemon>
         <CardPokemon></CardPokemon>

@@ -1,12 +1,49 @@
-.containerPokemon {
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-  gap: 50px;
-  padding: 0.5em;
+.container-pokemon {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  padding-top: 42px !important;
 }
-.containerPokemon::after {
+.container-pokemon::after {
   content: "";
   flex: auto;
+}
+
+.main-container {
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+}
+
+@media (orientation: landscape) {
+  .container-pokemon {
+    padding: 0 9vw;
+  }
+}
+
+@media (orientation: portrait) {
+  .container-pokemon {
+    padding: 0 2.5vw;
+  }
+}
+
+@media (max-width: 336px), (min-width: 336px) and (max-width: 730px) {
+  .container-pokemon {
+    align-items: center !important;
+    align-content: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    padding-top: 42px !important;
+    /* quando a tela eh no maximo o tamanho de 1 carta */
+  }
+}
+
+@media (min-width: 1700px) {
+  .container-pokemon {
+    padding: 0 6vw !important;
+    padding-top: 42px !important;
+  }
 }

@@ -4,20 +4,35 @@
 }
 .card {
   width: 300px;
+  height: auto;
   box-shadow: -3px 0px 24px 6px rgba(0, 0, 0, 0.71);
   margin: 10px 0px;
   overflow: hidden;
   border-radius: 10px;
+
+  cursor: pointer;
+  transition: transform 0.5s ease;
+
+  margin-left: 18px;
+  margin-right: 18px;
+  margin-bottom: 42px;
 }
 
 .card:hover {
-  cursor: pointer;
-}
-.card-icon {
-  width: 200px;
-  transition: transform 0.5s ease;
-}
-.card-icon:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+.card-icon {
+  width: auto;
+  max-width: 200px;
+  height: auto;
+  max-height: 200px;
+}
+.card-body,
+.card-content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  align-content: center;
 }

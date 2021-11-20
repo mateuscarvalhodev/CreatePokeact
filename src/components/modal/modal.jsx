@@ -1,6 +1,7 @@
 import react, { useRef, useState } from "react";
 import "../modal/modal.css";
 
+
 export default () => {
   const fileInput = useRef(null);
 
@@ -36,7 +37,7 @@ export default () => {
       image: URL.createObjectURL(pokemonPreviewImage.current),
     };
 
-    
+
   };
 
   return (
