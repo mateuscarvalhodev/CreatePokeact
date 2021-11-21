@@ -8,10 +8,14 @@ export default () => {
         setValueOpenModal(true)
         console.log(isOpenModal);
     }
+
+    const closeModal = () => {
+        setValueOpenModal(false);
+    }
 return(
     <>
       <Header1 openModal={openModal}></Header1>
-      <Modal open={isOpenModal} ></Modal>
+      <Modal open={isOpenModal} close={closeModal}></Modal>
       <GaleriaPokemon></GaleriaPokemon>
     </>
     

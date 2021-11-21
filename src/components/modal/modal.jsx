@@ -48,7 +48,7 @@ export default (props) => {
         <div className="form">
           <div className="form-header">
             <div className="title">New Pokemon</div>
-            <div className="close-button">X</div>
+            <div className="close-button" onClick={props.close}>X</div>
           </div>
           <form action="">
             {/* <div className="input-group">
