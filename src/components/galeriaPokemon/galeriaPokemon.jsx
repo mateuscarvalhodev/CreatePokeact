@@ -1,76 +1,26 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CardPokemon from "../cardPokemon/cardPokemon";
 import Modal from "../modal/modal";
 import Home from "../Home/home";
 import "../galeriaPokemon/galeriaPokemon.css";
 
-
-const galleryPokemon = () => {
-  const [pokemonList, addPokemon] = useState([]);
-  const [isOpenModal, setValueOpenModal]= useState(false);
-  // const [openModal, setOpenModal] = useState(false);
-  const isFormValid = (inputData) => {
-    return (
-      inputData.name.value !== "" &&
-      inputData.type.value !== "" &&
-      inputData.image.value !== "" 
-    );
-  };
-
-
-  
-  
-return(
+const pokemonGallery = (props) => {
+  return (
     <div>
-      
       <div className="container-pokemon">
-        {pokemonList.map((pokemon, i) => (
-          <Card
-            key={i}
-            name={pokemon.name}
-            type={pokemon.type}
-            image={pokemon.image}
-          ></Card>
-    ))}
+        {props.pokemonList.map((pokemon, index) => (
+          <CardPokemon
+            deletePokemon={props.deletePokemon}
+            key={index}
+            pokemonIndex={index}
+            pokemon={pokemon}
+          ></CardPokemon>
+        ))}
         <div className="emptyCard"></div>
         <div className="emptyCard"></div>
-  </div>
-  
-  </div>
+      </div>
+    </div>
   );
 };
 
-export default (galleryPokemon);
-
-// export default () => {
-//   return (
-//     <>
-      
-//       <div className="container-pokemon">
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//         <CardPokemon></CardPokemon>
-//       </div>
-//     </>
-//   );
-// };
+export default pokemonGallery;

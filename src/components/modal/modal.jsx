@@ -1,28 +1,31 @@
 import React, { useRef, useState } from "react";
+import { Fragment } from "react";
 import "../modal/modal.css";
-
-
 
 export default (props) => {
   if (!props.open) return null;
   const fileInput = useRef(null);
 
-  const [pokemonPreviewImage, setPokemonPreviewImage] = useState("");
+  const [pokemonImage, setPokemonImage] = useState("");
   const [pokemonName, setPokemonName] = useState("");
+  const [pokemonType, setPokemonType] = useState("");
 
   const selectPictureButtonAction = () => {
     fileInput?.current?.click();
   };
 
-  const isFileImage = (file) => {
-    const imageTest = ["img", "image"];
-    return imageTest.some((imageType) => file.type.includes(imageType));
+  const getBase64FromFile = (file) => {
+    return new Promise((resolve, _) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
   };
 
-  const updateFileList = () => {
+  const updateFileList = async () => {
     try {
-      const image = fileInput.current.files[0];
-      setPokemonPreviewImage(image);
+      const image = await getBase64FromFile(fileInput.current.files[0]);
+      setPokemonImage(image);
     } catch (error) {
       alert("Erro ao carregar imagem.");
       console.error("Erro ao carregar imagem.", error);
@@ -33,16 +36,37 @@ export default (props) => {
     setPokemonName(event.target.value);
   };
 
+  const updatePokemonType = (event) => {
+    setPokemonType(event.target.value);
+  };
+
+  const isEmptyOrNull = (value) => {
+    return value === undefined || value === null || value === "";
+  };
+
   const addPokemon = () => {
-    const pokemon = {
-      name: pokemonName.current,
-      image: URL.createObjectURL(pokemonPreviewImage.current),
-    };
-    console.log(pokemon);
+    console.log(pokemonImage);
+    if (isEmptyOrNull(pokemonImage)) {
+      alert("Você precisa adicionar uma imagem!");
+    } else if (isEmptyOrNull(pokemonName)) {
+      alert("Você precisa adicionar um nome!");
+    } else if (isEmptyOrNull(pokemonType)) {
+      alert("Você precisa adicionar um tipo!");
+    } else {
+      const pokemon = {
+        pokemonName,
+        pokemonType,
+        pokemonImage,
+      };
+      console.log("pokemon criado!", pokemon);
+      props.submitPokemon(pokemon);
+      props.close();
+    }
   };
 
   return (
-    <div className="modal-overlay active">
+    <Fragment>
+      <div onClick={props.close} className="modal-overlay active"></div>
       <div className="modal-content">
         <div className="form">
           <div className="form-header">
@@ -51,26 +75,25 @@ export default (props) => {
               X
             </div>
           </div>
-          <form onsubmit={addPokemon} className="form">
+          <div className="form">
             <input
               type="text"
-              id="PokemonName"
-              name="PokemonName"
+              id="pokemon-name"
+              name="pokemon-name"
               className="form-control"
               placeholder="Pokemon Name..."
-              // onChange={updatePokemonName}
-              required
+              value={pokemonName}
+              onChange={updatePokemonName}
             />
             <input
               type="text"
-              id="TypePokemon"
-              name="TypePokemon"
-              className="form-control"
+              id="pokemon-type"
+              name="pokemon-type"
+              className="form-control type"
               placeholder="Pokemon Type..."
-              // onChange={updatePokemonName}
-              required
+              onChange={updatePokemonType}
             />
-            
+
             {/* <select className="form-select" aria-label="Default select example" id="type" name="type">
               <option selected>Select the type..</option>
               <option value="Normal">Normal</option>
@@ -94,14 +117,12 @@ export default (props) => {
             </select> */}
             <div className="form-group files">
               <input
-                
                 id="file-input"
                 className="input"
                 type="file"
                 name="image"
                 accept="image/png, image/jpeg"
                 ref={fileInput}
-                value={pokemonName}
                 onChange={updateFileList}
                 required
               />
@@ -110,26 +131,20 @@ export default (props) => {
               </div>
             </div>
             <div id="preview">
-              {pokemonPreviewImage ? (
-                <img
-                  className="pokemon-preview-image"
-                  src={URL.createObjectURL(pokemonPreviewImage)}
-                />
+              {pokemonImage ? (
+                <img className="pokemon-preview-image" src={pokemonImage} />
               ) : (
                 <div></div>
               )}
             </div>
-        <div className="add-button-container">
-          
-          <button type="submit" className="add-button">
-                  Adicionar
-                </button>
-            
-          
-        </div>
-          </form>
+            <div className="add-button-container">
+              <button onClick={addPokemon} className="add-button">
+                Adicionar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };

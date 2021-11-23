@@ -36,3 +36,21 @@
   align-items: center;
   align-content: center;
 }
+
+.card-body {
+  position: relative;
+}
+.delete-button {
+  color: red;
+  font-weight: 800;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 23px;
+
+  display: none;
+}
+
+.card:hover .delete-button {
+  display: block;
+}
