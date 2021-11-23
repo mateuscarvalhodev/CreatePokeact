@@ -1,4 +1,6 @@
 import react from "react";
+import lupa from "../../assets/images/lupa.png";
+import "../header/header.css"
 export default (props) => {
   return (
     <div>
@@ -29,16 +31,15 @@ export default (props) => {
               />
               <span className="input-group-text border-0" id="search-addon">
                 <i className="fas fa-search"></i>
+                <img className="lupa" src={lupa} />
               </span>
             </div>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
+              
             </li>
             <li className="nav-item">
-              <a className="nav-link"  href="#" onClick={props.openModal}>
-                ADICIONAR POKEMON
+            <a><button type="button" className="btn btn-primary" id="button" onClick={props.openModal}>
+                Add Pokemon.. </button>
               </a>
             </li>
 

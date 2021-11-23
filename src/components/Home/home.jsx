@@ -12,11 +12,28 @@ export default () => {
     const closeModal = () => {
         setValueOpenModal(false);
     }
+    const submitPokemon = (e) => {
+        e.preventDefault();
+        const inputData = e.target;
+        
+        if (!isFormValid(inputData)) {
+          alert ("Fill all the fields");
+        } else {
+            const pokemon ={
+              name: inputData.name.value,
+              type: inputData.type.value,
+              image: inputData.image.src
+              };
+            addPokemon([...pokemonList, pokemon])
+            setOpenModal(false);
+            
+            };
+          };
 return(
     <>
       <Header1 openModal={openModal}></Header1>
-      <Modal open={isOpenModal} close={closeModal}></Modal>
-      <GaleriaPokemon></GaleriaPokemon>
+      <Modal submitPokemon={submitPokemon} open={isOpenModal} close={closeModal} />
+      <GaleriaPokemon />
     </>
     
     );

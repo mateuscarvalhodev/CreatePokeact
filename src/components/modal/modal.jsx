@@ -1,10 +1,10 @@
-import react, { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "../modal/modal.css";
 
 
+
 export default (props) => {
-  if (!props.open) 
-    return null;
+  if (!props.open) return null;
   const fileInput = useRef(null);
 
   const [pokemonPreviewImage, setPokemonPreviewImage] = useState("");
@@ -38,8 +38,7 @@ export default (props) => {
       name: pokemonName.current,
       image: URL.createObjectURL(pokemonPreviewImage.current),
     };
-
-
+    console.log(pokemon);
   };
 
   return (
@@ -48,62 +47,87 @@ export default (props) => {
         <div className="form">
           <div className="form-header">
             <div className="title">New Pokemon</div>
-            <div className="close-button" onClick={props.close}>X</div>
+            <div className="close-button" onClick={props.close}>
+              X
+            </div>
           </div>
-          <form action="">
-            {/* <div className="input-group">
-              <label className="sr-only" for="name">
-                Pokemon Name
-              </label>
-              <input
-                type="text"
-                id="namePokemon"
-                name="namePokemon"
-                placeholder="Nome do Pokemon..."
-              />
-            </div> */}
-          </form>
-          <div className="form-group">
-            <label className="form-label"></label>
+          <form onsubmit={addPokemon} className="form">
             <input
               type="text"
               id="PokemonName"
               name="PokemonName"
               className="form-control"
               placeholder="Pokemon Name..."
-              onChange={updatePokemonName}
+              // onChange={updatePokemonName}
+              required
             />
-          </div>
-          <div className="form-group files">
             <input
-              id="file-input"
-              className="input"
-              type="file"
-              name="image"
-              accept="image/png, image/jpeg"
-              ref={fileInput}
-              value={pokemonName}
-              onChange={updateFileList}
+              type="text"
+              id="TypePokemon"
+              name="TypePokemon"
+              className="form-control"
+              placeholder="Pokemon Type..."
+              // onChange={updatePokemonName}
+              required
             />
-            <div onClick={selectPictureButtonAction} className="select-files">
-              Select Pictures
-            </div>
-          </div>
-          <div id="preview">
-            {pokemonPreviewImage ? (
-              <img
-                className="pokemon-preview-image"
-                src={URL.createObjectURL(pokemonPreviewImage)}
+            
+            {/* <select className="form-select" aria-label="Default select example" id="type" name="type">
+              <option selected>Select the type..</option>
+              <option value="Normal">Normal</option>
+              <option value="Fire">Fire</option>
+              <option value="Water">Water</option>
+              <option value="Grass">Grass</option>
+              <option value="Electric">Electric</option>
+              <option value="Ice">Ice</option>
+              <option value="Fighting">Fighting</option>
+              <option value="Poison">Poison</option>
+              <option value="Ground">Ground</option>
+              <option value="Flying">Flying</option>
+              <option value="Psychic">Psychic</option>
+              <option value="Bug">Bug</option>
+              <option value="Rock">Rock</option>
+              <option value="Ghost">Ghost</option>
+              <option value="Dark">Dark</option>
+              <option value="Dragon">Dragon</option>
+              <option value="Steel">Steel</option>
+              <option value="Fairy">Fairy</option>
+            </select> */}
+            <div className="form-group files">
+              <input
+                
+                id="file-input"
+                className="input"
+                type="file"
+                name="image"
+                accept="image/png, image/jpeg"
+                ref={fileInput}
+                value={pokemonName}
+                onChange={updateFileList}
+                required
               />
-            ) : (
-              <div></div>
-            )}
-          </div>
-        </div>
+              <div onClick={selectPictureButtonAction} className="select-files">
+                Select Pictures
+              </div>
+            </div>
+            <div id="preview">
+              {pokemonPreviewImage ? (
+                <img
+                  className="pokemon-preview-image"
+                  src={URL.createObjectURL(pokemonPreviewImage)}
+                />
+              ) : (
+                <div></div>
+              )}
+            </div>
         <div className="add-button-container">
-          <div onClick={addPokemon} className="add-button">
-            Adicionar
-          </div>
+          
+          <button type="submit" className="add-button">
+                  Adicionar
+                </button>
+            
+          
+        </div>
+          </form>
         </div>
       </div>
     </div>
