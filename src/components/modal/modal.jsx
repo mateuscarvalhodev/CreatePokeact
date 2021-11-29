@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Fragment } from "react";
+import { contextInfo } from "../contextInfo/contextInfo";
 import "../modal/modal.css";
 
 export default (props) => {
@@ -9,6 +10,7 @@ export default (props) => {
   const [pokemonImage, setPokemonImage] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonType, setPokemonType] = useState("");
+  const [pokemonInfo, setPokemonInfo] = useState("");
 
   const selectPictureButtonAction = () => {
     fileInput?.current?.click();
@@ -40,6 +42,10 @@ export default (props) => {
     setPokemonType(event.target.value);
   };
 
+  const updatePokemonInfo = (event) => {
+    setPokemonInfo(event.target.value);
+  };
+
   const isEmptyOrNull = (value) => {
     return value === undefined || value === null || value === "";
   };
@@ -52,11 +58,14 @@ export default (props) => {
       alert("Você precisa adicionar um nome!");
     } else if (isEmptyOrNull(pokemonType)) {
       alert("Você precisa adicionar um tipo!");
+    } else if (isEmptyOrNull(pokemonInfo)) {
+      alert("Você precisa adicionar informações sobre o pokemon!");
     } else {
       const pokemon = {
         pokemonName,
         pokemonType,
         pokemonImage,
+        pokemonInfo,
       };
       console.log("pokemon criado!", pokemon);
       props.submitPokemon(pokemon);
@@ -64,8 +73,9 @@ export default (props) => {
     }
   };
 
+          
   return (
-    <Fragment>
+        <Fragment>
       <div onClick={props.close} className="modal-overlay active"></div>
       <div className="modal-content">
         <div className="form">
@@ -92,7 +102,17 @@ export default (props) => {
               className="form-control type"
               placeholder="Pokemon Type..."
               onChange={updatePokemonType}
-            />
+              />
+            <div className="form-group">
+              <textarea
+              type="text"
+              id="textarea" 
+              className="form-control" 
+              placeholder="About this Pokemon..."
+              onChange={updatePokemonInfo}
+              >
+              </textarea>
+            </div>
 
             {/* <select className="form-select" aria-label="Default select example" id="type" name="type">
               <option selected>Select the type..</option>

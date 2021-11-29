@@ -27,7 +27,7 @@
   padding: 2.4rem;
   z-index: 9999;
   width: 600px;
-  height: 500px;
+  height: 600px;
   background: #f0f2f5;
 
   position: absolute;
@@ -152,4 +152,7 @@
 #pokemon-type {
   margin-top: 8px;
   margin-bottom: 6px;
+}
+#textarea{
+  margin-top:5px;
 }

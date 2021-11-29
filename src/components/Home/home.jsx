@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header1 from "../../components/header/header.jsx";
+import { InfoContext } from "../contextInfo/contextInfo.jsx";
 import GaleriaPokemon from "../galeriaPokemon/galeriaPokemon";
 import Modal from "../modal/modal";
 export default () => {
@@ -75,3 +76,21 @@ export default () => {
     </>
   );
 };
+
+function app(){
+  const Router = () => {
+    const location = window.location.pathname
+    if (location === '/cardPokemon'){
+      return <cardPokemon />;
+    } else {
+      return <Home />;
+    }
+  }
+  return(
+    <>
+    {Router()}
+    </>
+  )
+}
+
+// export default Home;
