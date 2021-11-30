@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Fragment } from "react";
-import { contextInfo } from "../contextInfo/contextInfo";
 import "../modal/modal.css";
 
 export default (props) => {
@@ -66,6 +65,7 @@ export default (props) => {
         pokemonType,
         pokemonImage,
         pokemonInfo,
+        id: Math.random().toString(36).slice(2),
       };
       console.log("pokemon criado!", pokemon);
       props.submitPokemon(pokemon);
@@ -73,9 +73,8 @@ export default (props) => {
     }
   };
 
-          
   return (
-        <Fragment>
+    <Fragment>
       <div onClick={props.close} className="modal-overlay active"></div>
       <div className="modal-content">
         <div className="form">
@@ -102,39 +101,16 @@ export default (props) => {
               className="form-control type"
               placeholder="Pokemon Type..."
               onChange={updatePokemonType}
-              />
+            />
             <div className="form-group">
               <textarea
-              type="text"
-              id="textarea" 
-              className="form-control" 
-              placeholder="About this Pokemon..."
-              onChange={updatePokemonInfo}
-              >
-              </textarea>
+                type="text"
+                id="textarea"
+                className="form-control"
+                placeholder="About this Pokemon..."
+                onChange={updatePokemonInfo}
+              ></textarea>
             </div>
-
-            {/* <select className="form-select" aria-label="Default select example" id="type" name="type">
-              <option selected>Select the type..</option>
-              <option value="Normal">Normal</option>
-              <option value="Fire">Fire</option>
-              <option value="Water">Water</option>
-              <option value="Grass">Grass</option>
-              <option value="Electric">Electric</option>
-              <option value="Ice">Ice</option>
-              <option value="Fighting">Fighting</option>
-              <option value="Poison">Poison</option>
-              <option value="Ground">Ground</option>
-              <option value="Flying">Flying</option>
-              <option value="Psychic">Psychic</option>
-              <option value="Bug">Bug</option>
-              <option value="Rock">Rock</option>
-              <option value="Ghost">Ghost</option>
-              <option value="Dark">Dark</option>
-              <option value="Dragon">Dragon</option>
-              <option value="Steel">Steel</option>
-              <option value="Fairy">Fairy</option>
-            </select> */}
             <div className="form-group files">
               <input
                 id="file-input"
@@ -144,7 +120,6 @@ export default (props) => {
                 accept="image/png, image/jpeg"
                 ref={fileInput}
                 onChange={updateFileList}
-                required
               />
               <div onClick={selectPictureButtonAction} className="select-files">
                 Select Pictures

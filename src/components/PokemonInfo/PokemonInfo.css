@@ -1,0 +1,133 @@
+.back-button {
+  background: green;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background-color: lightgreen;
+  text-align: center;
+
+  margin-top: 24px;
+
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-grow: 1;
+}
+#file-input {
+  opacity: 0;
+  display: none;
+}
+
+.select-files {
+  margin-top: 5px;
+  background: lightblue;
+
+  min-height: 36px;
+  max-height: 36px;
+  min-width: 180px;
+  max-width: 180px;
+
+  border-radius: 8px;
+
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  cursor: pointer;
+}
+#TypePokemon {
+  margin-top: 8px;
+}
+.close-button {
+  color: darkmagenta;
+  cursor: pointer;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  padding: 8px 12px;
+
+  background-color: lightgreen;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+.styled select {
+  background: transparent;
+  width: 150px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+}
+.styled {
+  /* margin: 50px; */
+  width: 120px;
+  height: 34px;
+  border: 1px solid #111;
+  border-radius: 3px;
+  overflow: hidden;
+  background: 96% / 20% no-repeat #eee;
+}
+.form-group.files {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+
+  margin: 0 !important;
+}
+
+.form-group.files input {
+  display: none;
+}
+
+.pokemon-preview-image {
+  width: auto;
+  max-height: 176px;
+}
+
+#preview {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#pokemon-type {
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+#textarea {
+  margin-top: 5px;
+}

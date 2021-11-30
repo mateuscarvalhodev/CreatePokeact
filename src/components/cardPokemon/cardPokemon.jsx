@@ -1,12 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import "./cardPokemon.css";
-// import ImagePokemon from "../../assets/images/charizardbaby.png";
+
 export default (props) => {
   const deletePokemon = () => {
     props.deletePokemon(props.pokemonIndex);
   };
+
+  const navigate = useNavigate();
+
   return (
-    <div>
+    <div onClick={() => navigate(`/pokemon-info/${props.pokemon.id}`)}>
       <div className="card">
         <div className="card-body">
           <img
@@ -26,10 +30,7 @@ export default (props) => {
               <span>{props.pokemon.pokemonType}</span>
             </p>
           </div>
-          <div
-            onClick={deletePokemon}
-            className="delete-button"
-          >
+          <div onClick={deletePokemon} className="delete-button">
             X
           </div>
         </div>

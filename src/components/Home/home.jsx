@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Header1 from "../../components/header/header.jsx";
-import { InfoContext } from "../contextInfo/contextInfo.jsx";
+import { usePokemonListContext } from "../../contexts/contextInfo.jsx";
 import GaleriaPokemon from "../galeriaPokemon/galeriaPokemon";
 import Modal from "../modal/modal";
+
 export default () => {
   const [isOpenModal, setValueOpenModal] = useState(false);
-  const [pokemonList, setPokemonList] = useState([]);
+  const { pokemonList, setPokemonList } = usePokemonListContext();
   const [pokemonListBackup, setPokemonListBackup] = useState([]);
 
   useEffect(() => {
-    const pokemonList = localStorage.getItem("pokemonList");
-    if (pokemonList) {
-      setPokemonList(JSON.parse(pokemonList));
+    const _pokemonList = localStorage.getItem("pokemonList");
+    if (_pokemonList && (!pokemonList || pokemonList.length === 0)) {
+      setPokemonList(JSON.parse(_pokemonList));
     }
   }, []);
 
@@ -64,6 +65,10 @@ export default () => {
     }
   };
 
+  setTimeout(() => {
+    console.log(pokemonList);
+  }, 3000);
+
   return (
     <>
       <Header1 searchPokemon={searchPokemon} openModal={openModal}></Header1>
@@ -77,20 +82,16 @@ export default () => {
   );
 };
 
-function app(){
+function app() {
   const Router = () => {
-    const location = window.location.pathname
-    if (location === '/cardPokemon'){
+    const location = window.location.pathname;
+    if (location === "/cardPokemon") {
       return <cardPokemon />;
     } else {
       return <Home />;
     }
-  }
-  return(
-    <>
-    {Router()}
-    </>
-  )
+  };
+  return <>{Router()}</>;
 }
 
 // export default Home;
