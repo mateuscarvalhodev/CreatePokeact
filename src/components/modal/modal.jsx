@@ -107,7 +107,7 @@ export default (props) => {
                 type="text"
                 id="textarea"
                 className="form-control"
-                placeholder="About this Pokemon..."
+                placeholder="Sobre o pokemon..."
                 onChange={updatePokemonInfo}
               ></textarea>
             </div>
